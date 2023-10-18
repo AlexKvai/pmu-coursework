@@ -127,13 +127,14 @@ class MyRenderer(ctx: Context) : GLSurfaceView.Renderer {
     }
 
     override fun onDrawFrame(gl: GL10) {
-        glClearColor(bgColorR, bgColorG, bgColorB, bgColorA)
+        // Установка светлого фона (белый цвет)
+        glClearColor(0.5f, 0.5f, 0.5f, 1.0f)
         glClear(GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT)
 
         val candle = (objects[objects.size - 2] as GLObject)
 
         for (obj in objects) {
-            //            (obj as GLObject).rotateY += 1f
+            // (obj as GLObject).rotateY += 1f
             obj.setLightDirection(candle.x - obj.x, candle.y + 1f - obj.y, candle.z - obj.z)
             obj.onDrawFrame(gl)
         }
