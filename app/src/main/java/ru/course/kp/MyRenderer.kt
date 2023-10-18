@@ -26,7 +26,7 @@ class MyRenderer(ctx: Context) : GLSurfaceView.Renderer {
             baseShader,
             textureShader,
             ctx.assets.open("models/table.obj"),
-            ctx.assets.open("models/table.jpg")
+            ctx.assets.open("models/tablecheck.jpeg")
         )
         table.setPosition(0f, -2f, -10f)
         table.setScale(2f, 2f, 2f)
@@ -36,7 +36,7 @@ class MyRenderer(ctx: Context) : GLSurfaceView.Renderer {
             colorShader,
             ctx.assets.open("models/candle.obj")
         )
-        candle.setPosition(0.5f, -0.45f, -9f)
+        candle.setPosition(0.32f, -0.45f, -9f)
         candle.setScale(0.005f, 0.005f, 0.005f)
 
         val glass = GLObject.fromInputStream(
@@ -53,7 +53,7 @@ class MyRenderer(ctx: Context) : GLSurfaceView.Renderer {
             ctx.assets.open("models/apple.obj"),
             ctx.assets.open("models/apple.png")
         )
-        apple.setPosition(0.7f, -0.45f, -10f)
+        apple.setPosition(0.7f, -0.5f, -10f)
         apple.setScale(0.5f, 0.5f, 0.5f)
 
         val pear = GLObject.fromInputStream(
@@ -69,28 +69,39 @@ class MyRenderer(ctx: Context) : GLSurfaceView.Renderer {
         val banana = GLObject.fromInputStream(
             baseShader,
             colorShader,
-            ctx.assets.open("models/banana.obj")
+            ctx.assets.open("models/banana.obj"),
         )
-        banana.setPosition(-0.7f, -0.3f, -10f)
+        banana.setPosition(-1.7f, -0.3f, -10f)
         banana.setScale(0.05f, 0.05f, 0.05f)
         banana.setColor(1f, 1f, 0f)
         banana.rotateX = 180f
 
-        val pineapple = GLObject.fromInputStream(
+        val avocado = GLObject.fromInputStream(
             baseShader,
             textureShader,
-            ctx.assets.open("models/pineapple.obj"),
-            ctx.assets.open("models/pineapple.jpg")
+            ctx.assets.open("models/avocado.obj"),
+            ctx.assets.open("models/avocado.png")
         )
-        pineapple.setPosition(-1.2f, -0.52f, -9f)
-        pineapple.setScale(0.04f, 0.04f, 0.04f)
-        pineapple.rotateX = 270f
+        avocado.setPosition(-0.7f, -0.27f, -9f)
+        avocado.setScale(0.04f, 0.04f, 0.04f)
+        avocado.rotateX = 160f
 
+        val orange = GLObject.fromInputStream(
+            baseShader,
+            colorShader,
+            ctx.assets.open("models/lime.obj"),
+        )
+        orange.setPosition(1.8f, -0.35f, -10f)
+        orange.setScale(0.05f, 0.05f, 0.05f)
+        orange.setColor(3f, 2f, 0f)
+        orange.rotateX = 90f
+
+        objects.add(orange)
         objects.add(glass)
         objects.add(apple)
         objects.add(pear)
         objects.add(banana)
-        objects.add(pineapple)
+        objects.add(avocado)
         objects.add(candle)
         objects.add(table)
     }
